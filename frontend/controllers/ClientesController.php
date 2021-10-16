@@ -56,7 +56,9 @@ class ClientesController extends Controller
     {
         $pagos = Transacciones::find()->where(['cliente_id' => $id])->orderBy(['fecha_pago' => SORT_DESC, 'tipo_id' => SORT_DESC])->all();
         $users = \frontend\models\User::find()->all();
-        $facturas = \frontend\models\Facturas::find()->where(['cliente_id' => $id])->all();
+        $facturas = \frontend\models\Facturas::find()
+        ->where(['cliente_id' => $id])->orderBy(['date' => SORT_DESC])->all();
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
             'users' => $users,

@@ -127,7 +127,7 @@ $this->title = $model->empresa;
 									<?php if (count($facturas) > 0): ?>
 									<ol class="activity-feed">
 										<?php foreach ($facturas as $factura): ?>
-                    					<p><?= Html::a("<i class='fas fa-link mr-1'></i> $factura->asunto <i class='fas fa-external-link-alt fa-xs ml-2'></i>", ['facturas/ver', 'id' => $factura->id], ['target' => '_blank']) ?></p>
+                    					<p><?= Html::a("<i class='fas fa-link mr-1'></i> #$factura->factura_code - $factura->asunto <i class='fas fa-external-link-alt fa-xs ml-2'></i>", ['facturas/ver', 'id' => $factura->id], ['target' => '_blank']) ?></p>
 										<?php endforeach ?>
 		              </ol>
 		              <?php else: ?>

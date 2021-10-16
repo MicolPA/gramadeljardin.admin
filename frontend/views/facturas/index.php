@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 }else{
                                     $name = $data->cliente_nombre;
                                 }
-                                return Html::a($name, ['ver', 'id' => $data->id], ['target' => '_blank']);
+                                return Html::a("#".$data->factura_code . ' - ' . $name, ['ver', 'id' => $data->id], ['target' => '_blank']);
                             },
                         ], 
                         [
