@@ -233,7 +233,7 @@ class FacturasController extends Controller
                 exit;
             }
 
-            $model->factura_code = "CH00000$model->id";
+            $model->factura_code = Yii::$app->params['codigo-factura']."00000$model->id";
             $model->save();
             $this->registerInvoiceDetail($post, $model);
             return $this->redirect(['ver', 'id' => $model->id]);

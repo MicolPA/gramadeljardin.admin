@@ -4,10 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 
-/* @var $this yii\web\View */
-/* @var $model frontend\models\Facturas */
-/* @var $form yii\widgets\ActiveForm */
-
+$model->moneda = !$model->moneda ? "RD" : $model->moneda;
+$model->cotizacion = !$model->cotizacion ? 0 : $model->cotizacion;
 ?>
 
 <div class="facturas-form row">
@@ -42,10 +40,10 @@ use yii\helpers\ArrayHelper;
 
 <div class="row">
          <div class="col-md-3">
-                <?= $form->field($model, 'cotizacion')->radioList([1 =>'Cotización', 0 => 'Factura'])->label(false); ?>
+                <?= $form->field($model, 'cotizacion')->radioList([1 =>'Cotización', 0 => 'Factura'], ['required' => 'rquired'])->label(false); ?>
         </div>
         <div class="col-md-4">
-                <?= $form->field($model, 'moneda')->radioList(['RD' =>'DOP', 'USD' => 'USD'])->label(false); ?>
+                <?= $form->field($model, 'moneda')->radioList(['RD' =>'DOP', 'USD' => 'USD'], ['required' => 'rquired'])->label(false); ?>
         </div>
 </div>
 

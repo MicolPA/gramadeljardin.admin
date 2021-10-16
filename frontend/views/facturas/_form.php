@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 
-/* @var $this yii\web\View */
-/* @var $model frontend\models\Facturas */
-/* @var $form yii\widgets\ActiveForm */
+
+$model->moneda = !$model->moneda ? "DOP" : $model->moneda;
+$model->cotizacion = !$model->cotizacion ? 0 : $model->cotizacion;
 ?>
 
 <div class="facturas-form row">
