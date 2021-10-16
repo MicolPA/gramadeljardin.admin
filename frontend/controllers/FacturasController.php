@@ -323,7 +323,9 @@ class FacturasController extends Controller
     {
         $model = $this->findModel($id);
         $file = $this->getPath($model);
-        unlink("$file.pdf");
+        if (file_exists($file)) {
+            unlink("$file.pdf");
+        }
         $model->delete();
 
         return $this->redirect(['index']);
