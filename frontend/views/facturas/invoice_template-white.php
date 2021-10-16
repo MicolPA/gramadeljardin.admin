@@ -42,12 +42,12 @@ $monto_total = 0;
 						<?php endif ?>
 					</p>
 				</div>
-				<div class="col-md-4 info-invoice" style="width: 18%;display: inline-block;float:left;">
+				<div class="col-md-5 info-invoice" style="width: 22%;display: inline-block;float:left;">
 					<b style="font-size:12px">Fecha</b>
 					<p style="color:#4f4f4f;font-size:12px;"><?= $servicios->formatDate($model->date, 1) ?></p>
 				</div>
-				<div class="col-md-4 info-invoice" style="width: 18%;display: inline-block;float:left;">
-					<b style="font-size:12px">Factura</b>
+				<div class="col-md-3 info-invoice" style="width: 14%;display: inline-block;float:left;">
+					<b style="font-size:12px"><?= $model->cotizacion ? "Cotización" : "Factura"?></b>
 					<p style="color:#4f4f4f;font-size:12px;">#<?= $model->factura_code ?></p>
 				</div>
 			</div>
