@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 </ul>
                 <div class="ml-md-auto py-2 py-md-0">
 
-                    <?= Html::a('<i class="fas fa-plus-circle mr-2"></i> Crear factura', ['registrar'], ['class' => 'btn btn-secondary btn-sm']) ?>
-                    <?= Html::a('<i class="fas fa-plus-circle mr-2"></i> Crear factura sin cliente', ['registrar', 'w_client' => 0], ['class' => 'btn btn-success btn-sm']) ?>
-                    <?= Html::a('<i class="fas fa-file mr-2"></i> Archivo de Facturas', ['/facturas-generadas', 'w_client' => 0], ['class' => 'btn btn-warning  btn-sm', 'target' => '_blank']) ?>
+                    <?= Html::a('<i class="fas fa-plus-circle mr-2"></i> Crear', ['registrar'], ['class' => 'btn btn-secondary btn-sm']) ?>
+                    <?= Html::a('<i class="fas fa-plus-circle mr-2"></i> Crear sin cliente', ['registrar', 'w_client' => 0], ['class' => 'btn btn-success btn-sm']) ?>
+                    <?= Html::a('<i class="fas fa-file mr-2"></i> Archivo', ['/facturas-generadas', 'w_client' => 0], ['class' => 'btn btn-warning  btn-sm', 'target' => '_blank']) ?>
                 </div>
             </div>
 
