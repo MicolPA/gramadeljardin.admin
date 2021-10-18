@@ -328,6 +328,8 @@ class FacturasController extends Controller
         }
         $model->delete();
 
+        Yii::$app->session->setFlash('success', "Factura eliminada correctamente");
+
         return $this->redirect(['index']);
     }
 
