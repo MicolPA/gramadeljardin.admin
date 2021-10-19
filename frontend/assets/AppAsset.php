@@ -59,7 +59,7 @@ class AppAsset extends AssetBundle
         'js/setting-demo.js',
 
         // 'js/demo.js',
-        'js/main.js?v=9',
+        'js/main.js?v=10',
 
         //Calendar
         'calendar/js/jquery-ui.custom.min.js',

@@ -8,16 +8,22 @@ use yii\helpers\Html;
 	
 	<div class="invoice">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<div class="form-group descripcion">
 					<label>Descripción</label>
 					<input type="text" class="form-control" name="factura_descripcion[1]">
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="form-group precio">
-					<label>Precio</label>
+					<label>Precio (unidad)</label>
 					<input type="number" class="form-control" name="factura_precio[1]" placeholder="Dejar vacío si no aplica">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group cantidad">
+					<label>Cantidad</label>
+					<input type="number" class="form-control" name="factura_cantidad[1]" placeholder="Dejar vacío si no aplica">
 				</div>
 			</div>
 

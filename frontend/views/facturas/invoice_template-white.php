@@ -17,12 +17,19 @@ $monto_total = 0;
 			<div style="width: 50%;display:inline-block;float: left;padding-top: -2rem">
 				<!-- <img src="/frontend/web/images/Logo lineal.png" width="180px"> -->
 				<p style="font-weight: bold !important;letter-spacing: 10px;font-size:24px;font-family: poppins;"><?= $model->cotizacion ? "COTIZACIÓN" : "FACTURA" ?></p>
+				<?php if ($model->comprobante): ?>
+					<p>
+						<span style="font-weight:bold">NCF: </span>P01001001010 <br>
+						<?= $model->comprobante ?>
+					</p>
+				<?php endif ?>
 			</div>
 
 			<div style="width:50%;display:inline-block;float: left;text-align: right;margin-top: -2rem;margin-bottom: 1rem;">
 				<img src="/frontend/web/images/logo-no-word.png" width="100px" style="margin-bottom:2px">
 				<p style="font-size:10px;color:#4f4f4f; font-weight: lighter;">
-					<?= Yii::$app->params['app_name'] ?> <br>
+					<br>
+					<span style="font-weight:bold">RNC</span> 402-2048957-5 <br>
 					<?= Yii::$app->params['direccion'] ?><br>
 					<?= Yii::$app->params['telefono'] ?>
 				</p>
@@ -57,23 +64,29 @@ $monto_total = 0;
 					<thead>
 						<tr style="border: 0px !important;background-color: #f2f2f2">
 							<th style="border: 0px !important;color:#444;background-color: #f2f2f2">Detalle</th>
+							<th style="border: 0px !important;color:#444;text-align: right;background-color: #f2f2f2">Precio</th>
+							<th style="border: 0px !important;color:#444;text-align: right;background-color: #f2f2f2">Cantidad</th>
 							<th style="border: 0px !important;color:#444;text-align: right;background-color: #f2f2f2">Total</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php $color_count = 0; ?>
 						<?php foreach ($detalles as $d): ?>
-							<?php $monto_total += $d->precio; $color_count++ ?>
+							<?php $monto_total += $d->total; $color_count++ ?>
 							<?php if ($color_count == 1): ?>
 								<tr>
-									<td style='padding:20px 10px;width:80%;'><?= $d->descripcion ?></td>
-									<td style='padding:20px 10px;text-align: right;'><?= $d->precio > 0 ? "$". number_format($d->precio,2) : 'N/A' ?></td>
+									<td style='font-size: 12px;padding:20px 10px;width:40%;'><?= $d->descripcion ?></td>
+									<td style='font-size: 12px;padding:20px 10px;text-align: right;;width:20%;'><?= $d->precio > 0 ? "$". number_format($d->precio,2) : 'N/A' ?></td>
+									<td style='font-size: 12px;padding:20px 10px;text-align: right;width:20%;'><?= $d->cantidad ? $d->cantidad : "N/A" ?></td>
+									<td style='font-size: 12px;padding:20px 10px;text-align: right;width:20%;'><?= $d->total > 0 ? "$". number_format($d->total,2) : 'N/A' ?></td>
 								</tr>
 							<?php else: ?>
 								<?php $color_count = 0 ?>
 								<tr>
-									<td style='padding:20px 10px;background-color: #f2f2f2;width:80%;'><?= $d->descripcion ?></td>
-									<td style='padding:20px 10px;background-color: #f2f2f2;text-align: right;'><?= $d->precio > 0 ? "$". number_format($d->precio,2) : 'N/A' ?></td>
+									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;width:40%;'><?= $d->descripcion ?></td>
+									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;text-align: right;;width:20%;'><?= $d->precio > 0 ? "$". number_format($d->precio,2) : 'N/A' ?></td>
+									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;width:20%;text-align: right;'><?= $d->cantidad ?></td>
+									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;text-align: right;;width:20%;'><?= $d->total > 0 ? "$". number_format($d->total,2) : 'N/A' ?></td>
 								</tr>
 							<?php endif ?>
 						<?php endforeach ?>
@@ -82,13 +95,17 @@ $monto_total = 0;
 								<?php  $color_count++ ?>
 								<?php if ($color_count == 1): ?>
 								<tr>
-									<td style='padding:20px 10px;color:white'>-</td>
-									<td style='padding:20px 10px;color:white'>-</td>
+									<td style='font-size: 12px;padding:20px 10px;color:white'>-</td>
+									<td style='font-size: 12px;padding:20px 10px;color:white'>-</td>
+									<td style='font-size: 12px;padding:20px 10px;color:white'>-</td>
+									<td style='font-size: 12px;padding:20px 10px;color:white'>-</td>
 								</tr>
 								<?php else: ?>
 								<?php $color_count = 0 ?>
 								<tr>
 									<td style='padding:20px 10px;background-color: #f2f2f2;color:#f2f2f2'><?= $i ?></td>
+									<td style='padding:20px 10px;background-color: #f2f2f2;color:#f2f2f2'>$<?= $i ?></td>
+									<td style='padding:20px 10px;background-color: #f2f2f2;color:#f2f2f2'>$<?= $i ?></td>
 									<td style='padding:20px 10px;background-color: #f2f2f2;color:#f2f2f2'>$<?= $i ?></td>
 									<!-- <td style='padding:20px 10px;color: #000;;background-color: #f2f2f2;'>hola</td> -->
 									<!-- <td style='padding:20px 10px;color: #000;;background-color: #f2f2f2;'>-</td> -->
@@ -98,14 +115,10 @@ $monto_total = 0;
 							<?php endfor ?>
 						<?php endif ?>
 					</tbody>
-					
 					<!-- <tr>
 						<th style='padding:20px 10px;background:#56dfe4;color:#444'>Total</th>
 						<th style='padding:20px 10px;background:#56dfe4;color:#444'>RD$<?//= number_format($monto_total,2) ?></th>
 					</tr> -->
-
-
-
 				</table>
 
 				<div>

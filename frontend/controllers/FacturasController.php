@@ -181,7 +181,7 @@ class FacturasController extends Controller
             'mode' => Pdf::MODE_CORE,
             // A4 paper format
             // 'format' => Pdf::FORMAT_A4, 
-            'format' => [200.8, 258.6],  
+            'format' => [220.8, 258.6],  
             'marginTop' => 0,
             'marginLeft' => 0,
             'marginRight' => 10,
@@ -257,6 +257,8 @@ class FacturasController extends Controller
                     $invoiceDetail->factura_id = $model->id;
                     $invoiceDetail->descripcion = $post['factura_descripcion'][$i];
                     $invoiceDetail->precio = $post['factura_precio'][$i];
+                    $invoiceDetail->cantidad = isset($post['factura_cantidad'][$i]) ? $post['factura_cantidad'][$i] : null;
+                    $invoiceDetail->total = (float)$invoiceDetail->precio * (float)$invoiceDetail->cantidad;
                     $invoiceDetail->date = date("Y-m-d H:i:s");
                     $invoiceDetail->save(false);
                 }

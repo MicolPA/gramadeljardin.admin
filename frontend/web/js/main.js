@@ -108,6 +108,7 @@ function addInvoiceField(n){
     $('.addInvoice').append($('.invoice').html());
     $(".addInvoice .row:last-child .descripcion input:last-child").attr('name', 'factura_descripcion['+n+']');
     $(".addInvoice .row:last-child .precio input:last-child").attr('name', 'factura_precio['+n+']');
+    $(".addInvoice .row:last-child .cantidad input:last-child").attr('name', 'factura_cantidad['+n+']');
     $(".addInvoice .row:last-child .btn_delete a:last-child").removeClass('disabled');
     $("#addInvoiceBtn").attr('href', my_function);
 }
@@ -183,5 +184,10 @@ function borrarEvento(id, url){
           }
         });
 }
+
+
+$(".detalles .precio input").on('change', function(){
+	console.log($(this).val());
+})
 
 // function verEvento(nombre, )

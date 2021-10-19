@@ -39,6 +39,8 @@ $monto_total = 0;
 				<thead>
 					<tr style="border: 0px !important">
 						<th style="background: #56dfe4 !important;border: 0px !important;color:#444">Detalle</th>
+						<th style="background: #56dfe4 !important;border: 0px !important;color:#444">Precio</th>
+						<th style="background: #56dfe4 !important;border: 0px !important;color:#444">Cantidad</th>
 						<th style="background: #56dfe4 !important;border: 0px !important;color:#444">Total</th>
 					</tr>
 				</thead>
@@ -48,11 +50,15 @@ $monto_total = 0;
 						<tr>
 							<td style='padding:20px 10px'><?= $d->descripcion ?></td>
 							<td style='padding:20px 10px'>$<?= number_format($d->precio,2) ?></td>
+							<td style='padding:20px 10px'>$<?= $d->cantidad ?></td>
+							<td style='padding:20px 10px'>$<?= number_format($d->total,2) ?></td>
 						</tr>
 					<?php endforeach ?>
 					<?php if ($faltantes > 0): ?>
 						<?php for ($i=0;$i<=$faltantes;$i++): ?>
 							<tr>
+								<td style='padding:20px 10px;color:white'>hola</td>
+								<td style='padding:20px 10px;color:white'>hola</td>
 								<td style='padding:20px 10px;color:white'>hola</td>
 								<td style='padding:20px 10px;color:white'>hola</td>
 							</tr>

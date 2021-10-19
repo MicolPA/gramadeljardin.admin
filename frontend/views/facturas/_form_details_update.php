@@ -12,16 +12,22 @@ use yii\helpers\Html;
 		<?php $count = 0; ?>
 		<?php foreach ($detalles as $detalle): ?>
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-8">
 					<div class="form-group descripcion">
 						<label>Descripción</label>
 						<input type="text" class="form-control" name="factura_descripcion[<?= $count ?>]" value="<?= $detalle->descripcion ?>"> 
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="form-group precio">
 						<label>Precio</label>
 						<input type="number" class="form-control" name="factura_precio[<?= $count ?>]" placeholder="Dejar vacío si no aplica" value="<?= $detalle->precio ?>">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group cantidad">
+						<label>Cantidad</label>
+						<input type="number" class="form-control" name="factura_cantidad[<?= $count ?>]" placeholder="Dejar vacío si no aplica" value="<?= $detalle->cantidad ?>">
 					</div>
 				</div>
 
@@ -34,16 +40,22 @@ use yii\helpers\Html;
 	</div>
 	<div class="invoice">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<div class="form-group descripcion">
 					<label>Descripción</label>
 					<input type="text" class="form-control" name="factura_descripcion[<?= $count ?>]">
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<div class="form-group precio">
-					<label>Precio</label>
+					<label>Precio (unidad)</label>
 					<input type="number" class="form-control" name="factura_precio[<?= $count ?>]" placeholder="Dejar vacío si no aplica">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group cantidad">
+					<label>Cantidad</label>
+					<input type="number" class="form-control" name="factura_cantidad[<?= $count ?>]" placeholder="Dejar vacío si no aplica">
 				</div>
 			</div>
 
