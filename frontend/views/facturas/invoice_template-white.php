@@ -63,9 +63,9 @@ $monto_total = 0;
 				<table class="table table-striped" style="">
 					<thead>
 						<tr style="border: 0px !important;background-color: #f2f2f2">
+							<th style="border: 0px !important;color:#444;text-align: left;background-color: #f2f2f2">Cant.</th>
 							<th style="border: 0px !important;color:#444;background-color: #f2f2f2">Detalle</th>
 							<th style="border: 0px !important;color:#444;text-align: right;background-color: #f2f2f2">Precio</th>
-							<th style="border: 0px !important;color:#444;text-align: right;background-color: #f2f2f2">Cantidad</th>
 							<th style="border: 0px !important;color:#444;text-align: right;background-color: #f2f2f2">Total</th>
 						</tr>
 					</thead>
@@ -75,18 +75,18 @@ $monto_total = 0;
 							<?php $monto_total += $d->total; $color_count++ ?>
 							<?php if ($color_count == 1): ?>
 								<tr>
+									<td style='font-size: 12px;padding:20px 10px;text-align: left;width:15%;'><?= $d->cantidad ? $d->cantidad : "N/A" ?></td>
 									<td style='font-size: 12px;padding:20px 10px;width:40%;'><?= $d->descripcion ?></td>
 									<td style='font-size: 12px;padding:20px 10px;text-align: right;;width:20%;'><?= $d->precio > 0 ? "$". number_format($d->precio,2) : 'N/A' ?></td>
-									<td style='font-size: 12px;padding:20px 10px;text-align: right;width:20%;'><?= $d->cantidad ? $d->cantidad : "N/A" ?></td>
-									<td style='font-size: 12px;padding:20px 10px;text-align: right;width:20%;'><?= $d->total > 0 ? "$". number_format($d->total,2) : 'N/A' ?></td>
+									<td style='font-size: 12px;padding:20px 10px;text-align: right;width:25%;'><?= $d->total > 0 ? "$". number_format($d->total,2) : 'N/A' ?></td>
 								</tr>
 							<?php else: ?>
 								<?php $color_count = 0 ?>
 								<tr>
+									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;width:15%;text-align: left;'><?= $d->cantidad ?></td>
 									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;width:40%;'><?= $d->descripcion ?></td>
 									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;text-align: right;;width:20%;'><?= $d->precio > 0 ? "$". number_format($d->precio,2) : 'N/A' ?></td>
-									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;width:20%;text-align: right;'><?= $d->cantidad ?></td>
-									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;text-align: right;;width:20%;'><?= $d->total > 0 ? "$". number_format($d->total,2) : 'N/A' ?></td>
+									<td style='font-size: 12px;padding:20px 10px;background-color: #f2f2f2;text-align: right;;width:25%;'><?= $d->total > 0 ? "$". number_format($d->total,2) : 'N/A' ?></td>
 								</tr>
 							<?php endif ?>
 						<?php endforeach ?>
