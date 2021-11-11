@@ -22,7 +22,13 @@ $monto_total = 0;
 						<span style="font-weight:bold">NCF: </span>P01001001010 <br>
 						<?= $model->comprobante ?>
 					</p>
+				<?php else: ?>
+					<div style="height:50px"></div>
 				<?php endif ?>
+				<p>
+					<span style="font-weight:bold">Por concepto de: </span><?= $model->asunto ?> <br>
+					
+				</p>
 			</div>
 
 			<div style="width:50%;display:inline-block;float: left;text-align: right;margin-top: -2rem;margin-bottom: 1rem;">
