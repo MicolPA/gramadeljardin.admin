@@ -123,17 +123,26 @@ $monto_total = 0;
 
 				<div>
 					<?php if ($model->pagada): ?>
-					<div style='margin-top: 1rem;text-align: center;padding:10px;color:#444;border:2px dashed #fa2f2f;width:25%;float: left;display: inline-block;;color:#fa2f2f;transform:  scale(0.5);'>
-						<p style="font-size: 22px;margin: 0;color:#fa2f2f;font-weight: bold;">PAGADO</p>
-						<span style=";color:#fa2f2f;font-size:10px"><?= $servicios->formatDate($model->fecha_pagada) ?></span>
-					</div>	
+						<div style="padding-top:-2rem;width:30%;float: left;display: inline-block;;color:#fa2f2f;text-align:center;">
+							<img src="/frontend/web/images/sello.png" width="150px" style="margin-bottom:1rem">
+							<div style='margin-top: 1.5rem;text-align: center;padding:10px;color:#444;border:2px dashed #fa2f2f;width:80%;float: left;display: inline-block;;color:#fa2f2f;transform:  scale(0.5);margin:auto'>
+								<p style="font-size: 22px;margin: 0;color:#fa2f2f;font-weight: bold;">PAGADO</p>
+								<span style=";color:#fa2f2f;font-size:10px"><?= $servicios->formatDate($model->fecha_pagada) ?></span>
+							</div>	
+						</div>
+					<?php else: ?>
+						<div style="padding-top:-2rem;width:30%;float: left;display: inline-block;;color:#fa2f2f;text-align:center;">
+							<img src="/frontend/web/images/sello.png" width="180px">
+						</div>
 					<?php endif ?>
 					<div style='padding:0px 10px 10px 10px;color:#000;text-align: right;float: right;display: inline-block;width: 60%;'>
 						<br>Monto Total <br> 
 						<span style="color:<?= Yii::$app->params['color-total-factura'] ?>;font-size:28px;"><?= $model->moneda ?>$<?= number_format($monto_total,2) ?></span>
 						<p style="text-align:right;color:#8b8b8b">Todos los impuestos incluidos.</p>
+						<p style="color:<?= Yii::$app->params['color-total-factura'] ?>;font-weight: bold">
+							Pago contra entrega, válido por 15 días.
+						</p>
 					</div>
-
 				</div>
 			</div>
 		</div>
