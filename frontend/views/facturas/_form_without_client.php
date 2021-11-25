@@ -42,6 +42,10 @@ $model->cotizacion = !$model->cotizacion ? 0 : $model->cotizacion;
 </div>
 
 <div class="row">
+        <div class="col-md-4">
+                <?= $form->field($model, 'cliente_rnc')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-8"></div>
          <div class="col-md-3">
                 <?= $form->field($model, 'cotizacion')->radioList([1 =>'Cotización', 0 => 'Factura'], ['required' => 'rquired'])->label(false); ?>
         </div>

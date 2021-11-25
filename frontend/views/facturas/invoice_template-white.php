@@ -17,14 +17,23 @@ $monto_total = 0;
 			<div style="width: 60%;display:inline-block;float: left;padding-top: -2rem">
 				<!-- <img src="/frontend/web/images/Logo lineal.png" width="180px"> -->
 				<p style="font-weight: bold !important;letter-spacing: 10px;font-size:24px;font-family: poppins;"><?= $model->cotizacion ? "COTIZACIÓN" : "FACTURA" ?></p>
-				<?php if ($model->comprobante): ?>
-					<p>
-						<span style="font-weight:bold">NCF: </span>P01001001010 <br>
-						<?= $model->comprobante ?>
-					</p>
-				<?php else: ?>
-					<div style="height:50px"></div>
-				<?php endif ?>
+
+				<p style="font-size:10px !important;margin:0px;color:#4f4f4f">
+					<?= $servicios->formatDate($model->date, 1) ?> <br>
+					<span style="font-weight:bold">Nombre o razón social: </span>
+					<?php if (isset($model->cliente->representante_nombre)): ?>
+						<?= $model->cliente->representante_nombre .  " (" .$model->cliente->empresa . ")" ?>
+					<?php else: ?>
+						<?= $model->cliente_nombre ?>
+					<?php endif ?>
+					<br>
+					<?php if ($model->cliente_rnc): ?>
+						<span>
+							<span style="font-weight:bold">RNC: </span><?= $model->cliente_rnc ?>
+						</span>
+					<?php endif ?>
+				</p>
+				
 				<p>
 					<span style="font-weight:bold">Por concepto de: </span><?= $model->asunto ?> <br>
 					
@@ -35,34 +44,18 @@ $monto_total = 0;
 				<img src="/frontend/web/images/logo-no-word.png" width="100px" style="margin-bottom:2px">
 				<p style="font-size:10px;color:#4f4f4f; font-weight: lighter;">
 					<br>
-					<span style="font-weight:bold">RNC</span> 402-2048957-5 <br>
 					<?= Yii::$app->params['direccion'] ?><br>
-					<?= Yii::$app->params['telefono'] ?>
+					<?= Yii::$app->params['telefono'] ?> <br>
+					<span style="font-weight:bold">RNC</span> 402-2048957-5 <br>
+					<?php if ($model->comprobante): ?>
+							<span style="font-weight:bold">NCF: </span>P01001001010 <br>
+							<?= $model->comprobante ?> <br>
+					<?php endif ?>
+					
 				</p>
 				<!-- <p style="font-weight: 300 !important;letter-spacing: 10px;font-size:20px;">FACTURA</p> -->
 			</div>
 			<div style="height:1px;background: #f2f2f2 !important;margin-bottom: 1rem;">
-			</div>
-			<div style="width: 100%;">
-				
-				<div class="col-md-4 info-invoice" style="width: 48%;display: inline-block;float:left;padding: 0px;">
-					<b style="font-size:12px">Dirigida a</b>
-					<p style="color:#4f4f4f;font-size:12px;">
-						<?php if (isset($model->cliente->representante_nombre)): ?>
-						<?= $model->cliente->representante_nombre .  " (" .$model->cliente->empresa . ")" ?>
-						<?php else: ?>
-							<?= $model->cliente_nombre ?>
-						<?php endif ?>
-					</p>
-				</div>
-				<div class="col-md-5 info-invoice" style="width: 22%;display: inline-block;float:left;">
-					<b style="font-size:12px">Fecha</b>
-					<p style="color:#4f4f4f;font-size:12px;"><?= $servicios->formatDate($model->date, 1) ?></p>
-				</div>
-				<div class="col-md-3 info-invoice" style="width: 14%;display: inline-block;float:left;">
-					<b style="font-size:12px"><?= $model->cotizacion ? "Cotización" : "Factura"?></b>
-					<p style="color:#4f4f4f;font-size:12px;">#<?= $model->factura_code ?></p>
-				</div>
 			</div>
 
 			<div style="margin-top: 0.2rem;padding: 0px;">
