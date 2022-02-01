@@ -48,7 +48,7 @@ $monto_total = 0;
 					<?= Yii::$app->params['telefono'] ?> <br>
 					<span style="font-weight:bold">RNC</span> 402-2048957-5 <br>
 					<?php if ($model->comprobante): ?>
-							<span style="font-weight:bold">NCF: </span>P01001001010 <br>
+							<span style="font-weight:bold">NCF: </span><?= $model->ncf ?> <br>
 							<?= $model->comprobante ?> <br>
 					<?php endif ?>
 					

@@ -43,6 +43,9 @@ $model->cotizacion = !$model->cotizacion ? 0 : $model->cotizacion;
 
 <div class="row">
         <div class="col-md-4">
+                <?= $form->field($model, 'ncf')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-4">
                 <?= $form->field($model, 'cliente_rnc')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-8"></div>

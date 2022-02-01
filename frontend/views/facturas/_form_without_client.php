@@ -6,6 +6,8 @@ use yii\helpers\ArrayHelper;
 
 $model->moneda = !$model->moneda ? "RD" : $model->moneda;
 $model->cotizacion = !$model->cotizacion ? 0 : $model->cotizacion;
+
+
 ?>
 
 <div class="facturas-form row">
@@ -42,6 +44,9 @@ $model->cotizacion = !$model->cotizacion ? 0 : $model->cotizacion;
 </div>
 
 <div class="row">
+        <div class="col-md-4">
+                <?= $form->field($model, 'ncf')->textInput(['maxlength' => true]) ?>
+        </div>
         <div class="col-md-4">
                 <?= $form->field($model, 'cliente_rnc')->textInput(['maxlength' => true]) ?>
         </div>

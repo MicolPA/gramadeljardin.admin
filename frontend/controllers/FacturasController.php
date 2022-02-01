@@ -222,6 +222,9 @@ class FacturasController extends Controller
     {
         $model = new Facturas();
         $post = Yii::$app->request->post();
+        if (!$model->ncf) {
+            $model->ncf = "B0100000001";
+        }
         if ($model->load($post)) {
 
             // print_r($post);

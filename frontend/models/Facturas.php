@@ -35,7 +35,7 @@ class Facturas extends \yii\db\ActiveRecord
     {
         return [
             [['cliente_id', 'total', 'user_id', 'cotizacion', 'pagada'], 'integer'],
-            [['date', 'fecha_pagada', 'comprobante', 'cliente_rnc'], 'safe'],
+            [['date', 'fecha_pagada', 'comprobante', 'cliente_rnc', 'ncf'], 'safe'],
             [['cliente_nombre', 'asunto', 'moneda'], 'string', 'max' => 255],
             [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => Clientes::className(), 'targetAttribute' => ['cliente_id' => 'id']],
         ];
@@ -55,6 +55,7 @@ class Facturas extends \yii\db\ActiveRecord
             'user_id' => 'Usuario',
             'date' => 'Fecha',
             'cotizacion' => 'Cotización',
+            'ncf' => 'NCF'
         ];
     }
 
