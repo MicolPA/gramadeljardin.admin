@@ -14,7 +14,7 @@ $monto_total = 0;
 	<div style="padding-left:33;">
 		<div style="height: 100px"></div>
 		<div style="padding: 0px 40px;">
-			<div style="width: 60%;display:inline-block;float: left;padding-top: -2rem">
+			<div style="width: 55%;display:inline-block;float: left;padding-top: -2rem">
 				<!-- <img src="/frontend/web/images/Logo lineal.png" width="180px"> -->
 				<p style="font-weight: bold !important;letter-spacing: 10px;font-size:24px;font-family: poppins;"><?= $model->cotizacion ? "COTIZACIÓN" : "FACTURA" ?></p>
 
@@ -40,7 +40,7 @@ $monto_total = 0;
 				</p>
 			</div>
 
-			<div style="width:40%;display:inline-block;float: left;text-align: right;margin-top: -2rem;margin-bottom: 1rem;">
+			<div style="width:45%;display:inline-block;float: left;text-align: right;margin-top: -2rem;margin-bottom: 1rem;">
 				<img src="/frontend/web/images/logo-no-word.png" width="100px" style="margin-bottom:2px">
 				<p style="font-size:10px;color:#4f4f4f; font-weight: lighter;">
 					<br>
